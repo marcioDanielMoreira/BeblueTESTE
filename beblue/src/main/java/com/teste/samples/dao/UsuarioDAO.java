@@ -62,7 +62,7 @@ public class UsuarioDAO extends AbstractDAO<UsuarioPO> {
 		try {
 
 			Criteria criteria = this.sessaoCorrente.createCriteria( clazz );
-			criteria.add( Restrictions.idEq( cpf ) );
+			criteria.add( Restrictions.eq("user_cpf", cpf ) );
 
 			return (UsuarioPO) criteria.uniqueResult();
 		} catch ( Exception e ) {

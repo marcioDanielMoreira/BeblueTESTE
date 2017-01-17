@@ -25,7 +25,6 @@
 		<mapping class="com.teste.samples.domain.TransacaoPO" />
 		<mapping class="com.teste.samples.domain.UsuarioPO" />
 		<mapping class="com.teste.samples.domain.EstabelecimentoPO"/>
-		<mapping class="com.teste.samples.domain.TipotransacaoPO" />
 	
 	</session-factory>
 </hibernate-configuration>

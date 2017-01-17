@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.teste.samples.abstracts.AbstractDAO;
 import com.teste.samples.domain.TransacaoPO;
+import com.teste.samples.domain.UsuarioPO;
 import com.teste.samples.exceptions.ApplicationException;
 
 public final class TransacaoDAO extends AbstractDAO<TransacaoPO> {
@@ -27,12 +28,12 @@ public final class TransacaoDAO extends AbstractDAO<TransacaoPO> {
 				criteria.add( Restrictions.eq( "transaction_type", poFiltrar.getTransaction_type() ) );
 			}
 
-			if ( poFiltrar.getValue() != null ) {
-				criteria.add( Restrictions.eq( "transaction_value", poFiltrar.getValue() ) );
+			if ( poFiltrar.getTransaction_value() != null ) {
+				criteria.add( Restrictions.eq( "transaction_value", poFiltrar.getTransaction_value() ) );
 			}
 
-			if ( poFiltrar.getUsuario() != null ) {
-				criteria.add( Restrictions.eq( "user", poFiltrar.getUsuario() ) );
+			if ( poFiltrar.getUser_cpf()!= null ) {
+				criteria.add( Restrictions.eq( "user_cpf", poFiltrar.getUser_cpf() ) );
 			}
 
 			if ( poFiltrar.getCode() != null ) {
@@ -48,6 +49,18 @@ public final class TransacaoDAO extends AbstractDAO<TransacaoPO> {
 			}
 
 			return (ArrayList< TransacaoPO >) criteria.list();
+		} catch ( Exception e ) {
+			throw new ApplicationException( "Erro desconhecido", e );
+		}
+	}
+	
+	public TransacaoPO filtrarPorCPF(Class clazz, String cpf) throws ApplicationException {
+		try {
+
+			Criteria criteria = this.sessaoCorrente.createCriteria( clazz );
+			criteria.add( Restrictions.eq("user_cpf", cpf ) );
+
+			return (TransacaoPO) criteria.uniqueResult();
 		} catch ( Exception e ) {
 			throw new ApplicationException( "Erro desconhecido", e );
 		}

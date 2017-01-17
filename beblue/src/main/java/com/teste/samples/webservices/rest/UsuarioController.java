@@ -49,7 +49,7 @@ public class UsuarioController {
 			return createErrorResponse( String.format( sMessage, e.toString() ) );
 		}
 
-		logger_c.debug( "Returing Fund: " + usuario.toString() );
+		logger_c.debug( "Returing Users: " + usuario.toString() );
 		return new ModelAndView( jsonView_i, DATA_FIELD, usuario );
 	}
 	
@@ -64,11 +64,11 @@ public class UsuarioController {
 			return createErrorResponse(String.format(sMessage, e.toString()));
 		}
 
-		logger_c.debug("Returing Funds: " + usuarios.toString());
+		logger_c.debug("Returing Users: " + usuarios.toString());
 		return new ModelAndView(jsonView_i, DATA_FIELD, usuarios);
 	}
 	
-	@RequestMapping(value = { "/rest/users/" }, method = { RequestMethod.POST })
+	@RequestMapping(value = { "/rest/register-users/" }, method = { RequestMethod.POST })
 	public ModelAndView createFund(@RequestBody UsuarioPO user,
 			HttpServletResponse httpResponse, WebRequest request) {
 

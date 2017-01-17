@@ -54,7 +54,27 @@ public class TransacaoController {
 		return new ModelAndView( jsonView_i, DATA_FIELD, transacao );
 	}
 	
-	@RequestMapping(value = "/rest/transacao/", method = RequestMethod.GET)
+	@RequestMapping( value = "/rest/user-transactions/{cpf}", method = RequestMethod.GET )
+	public  ModelAndView getCpf( @PathVariable( "cpf" ) String cpf ) {
+		TransacaoPO transacao = null;
+
+		if ( isEmpty( cpf ) ) {
+			String sMessage = "Error invoking getFund - Invalid fund Id parameter";
+			return createErrorResponse( sMessage );
+		}
+
+		try {
+			transacaoService.getFundByCpf(cpf);
+		} catch ( Exception e ) {
+			String sMessage = "Error invoking getFund. [%1$s]";
+			return createErrorResponse( String.format( sMessage, e.toString() ) );
+		}
+
+		logger_c.debug( "Returing Fund: " + transacao.toString() );
+		return new ModelAndView( jsonView_i, DATA_FIELD, transacao );
+	}
+	
+	@RequestMapping(value = "/rest/users-transactions/", method = RequestMethod.GET)
 	public ModelAndView getUsuarios() {
 		List<TransacaoPO> transacoes = null;
 
@@ -69,7 +89,7 @@ public class TransacaoController {
 		return new ModelAndView(jsonView_i, DATA_FIELD, transacoes);
 	}
 	
-	@RequestMapping(value = { "/rest/transacao/" }, method = { RequestMethod.POST })
+	@RequestMapping(value = { "/rest/register-transaction/" }, method = { RequestMethod.POST })
 	public ModelAndView createFund(@RequestBody TransacaoPO transacao,
 			HttpServletResponse httpResponse, WebRequest request) {
 

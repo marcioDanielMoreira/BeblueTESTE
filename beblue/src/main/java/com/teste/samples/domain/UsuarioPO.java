@@ -29,15 +29,7 @@ public class UsuarioPO extends AbstractPO {
 
 	/** Método Construtor */
 
-	public UsuarioPO( String user_cpf, String name, Double balance ){
-		setUser_cpf( user_cpf );
-		setName( name );
-		setBalance( balance );
-	}
 
-	public UsuarioPO(){
-
-	}
 
 	/** Get and Set */
 

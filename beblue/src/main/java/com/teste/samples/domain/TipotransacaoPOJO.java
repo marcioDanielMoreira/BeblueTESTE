@@ -1,27 +1,13 @@
 package com.teste.samples.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+public final class TipotransacaoPOJO  {
 
-import com.teste.samples.abstracts.AbstractPO;
-
-@Entity
-@Table( name = "tipos_trasacao" )
-public final class TipotransacaoPO extends AbstractPO {
-
-	@Column( name = "transaction_type", nullable = false )
+	public static final String CASHBACK = "CASHBACK";
+	
 	private String transaction_type;
 
-	@Column( name = "transaction_name", nullable = false )
+	
 	private String transaction_name;
-
-	public TipotransacaoPO( String transaction_type, String transaction_name ){
-		setTransaction_type( transaction_type );
-		setTransaction_name( transaction_name );
-	}
-
-	public TipotransacaoPO(){}
 
 	public String getTransaction_type() {
 		return transaction_type;
@@ -61,10 +47,10 @@ public final class TipotransacaoPO extends AbstractPO {
 		if ( obj == null ) {
 			return false;
 		}
-		if ( !( obj instanceof TipotransacaoPO ) ) {
+		if ( !( obj instanceof TipotransacaoPOJO ) ) {
 			return false;
 		}
-		TipotransacaoPO other = (TipotransacaoPO) obj;
+		TipotransacaoPOJO other = (TipotransacaoPOJO) obj;
 		if ( transaction_name == null ) {
 			if ( other.transaction_name != null ) {
 				return false;

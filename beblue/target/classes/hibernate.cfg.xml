@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/beblue?createDatabaseIfNotExist=true</property>
+		<property name="connection.user">root</property>
+		<property name="connection.password"></property>
+		<property name="connection.pool_size">31</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="connection.autocommit">false</property>
+
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="hibernate.current_session_context_class">thread</property>
+	
+		<!-- MAPEANDO OS POs -->
+		<mapping class="com.teste.samples.abstracts.AbstractPO" />
+		<mapping class="com.teste.samples.domain.TransacaoPO" />
+		<mapping class="com.teste.samples.domain.UsuarioPO" />
+		<mapping class="com.teste.samples.domain.EstabelecimentoPO"/>
+		<mapping class="com.teste.samples.domain.TipotransacaoPO" />
+	
+	</session-factory>
+</hibernate-configuration>

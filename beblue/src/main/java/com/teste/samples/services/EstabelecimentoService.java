@@ -12,14 +12,14 @@ import com.teste.samples.exceptions.ApplicationException;
 @Service
 public class EstabelecimentoService {
 
-	public void getFundById(String id) throws NumberFormatException, ApplicationException {
+	public void getEstabelecimentoById(String id) throws NumberFormatException, ApplicationException {
 		EstabelecimentoFACADE facade = new EstabelecimentoFACADE();
 
 		facade.filtrarPorId(EstabelecimentoPO.class, new Long(id));
 		
 	}
 	
-	public List<EstabelecimentoPO> getAllFunds() throws ApplicationException {
+	public List<EstabelecimentoPO> getAllEstabelecimento() throws ApplicationException {
 		List<EstabelecimentoPO> estabelecimentos = new ArrayList<EstabelecimentoPO>();
 
 		for (int i = 0; i < 10; i++) {
@@ -32,7 +32,7 @@ public class EstabelecimentoService {
 		return estabelecimentos;
 	}
 	
-	public void createFund(EstabelecimentoPO estabelecimento) throws ApplicationException {
+	public void createEstabelecimento(EstabelecimentoPO estabelecimento) throws ApplicationException {
 
 
 		EstabelecimentoFACADE facade = new EstabelecimentoFACADE();

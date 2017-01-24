@@ -44,7 +44,7 @@ public class EstabelecimentoController {
 		}
 
 		try {
-			estabelecimentoService.getFundById(id);
+			estabelecimentoService.getEstabelecimentoById(id);
 		} catch ( Exception e ) {
 			String sMessage = "Error invoking getFund. [%1$s]";
 			return createErrorResponse( String.format( sMessage, e.toString() ) );
@@ -59,7 +59,7 @@ public class EstabelecimentoController {
 		List<EstabelecimentoPO> estabelecimentos = null;
 
 		try {
-			estabelecimentos = estabelecimentoService.getAllFunds();
+			estabelecimentos = estabelecimentoService.getAllEstabelecimento();
 		} catch (Exception e) {
 			String sMessage = "Error getting all funds. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -75,7 +75,7 @@ public class EstabelecimentoController {
 
 
 		try {
-			estabelecimentoService.createFund(estabelecimento);
+			estabelecimentoService.createEstabelecimento(estabelecimento);
 		} catch (Exception e) {
 			String sMessage = "Error creating new fund. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));

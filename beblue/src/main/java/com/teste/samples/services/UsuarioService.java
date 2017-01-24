@@ -14,14 +14,14 @@ import com.teste.samples.exceptions.ApplicationException;
 @Service
 public class UsuarioService {
 
-	public void getFundById(String id) throws NumberFormatException, ApplicationException {
+	public void getUserById(String id) throws NumberFormatException, ApplicationException {
 		UsuarioFACADE facade = new UsuarioFACADE();
 
 		facade.filtrarPorId(UsuarioPO.class, new Long(id));
 
 	}
 
-	public List<UsuarioPO> getAllFunds() throws ApplicationException {
+	public List<UsuarioPO> getAllUsers() throws ApplicationException {
 		List<UsuarioPO> usuarios = new ArrayList<UsuarioPO>();
 		
 		for (int i = 0; i < 10; i++) {
@@ -32,7 +32,7 @@ public class UsuarioService {
 		return usuarios;
 	}
 
-	public void createFund(UsuarioPO usuario) throws ApplicationException {
+	public void createUser(UsuarioPO usuario) throws ApplicationException {
 		RestTemplate restTemplate = new RestTemplate();
 		
 		UsuarioPO[] pojos = restTemplate.getForObject(

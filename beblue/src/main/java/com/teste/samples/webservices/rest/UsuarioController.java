@@ -43,7 +43,7 @@ public class UsuarioController {
 		}
 
 		try {
-			usuarioService.getFundById(id);
+			usuarioService.getUserById(id);
 		} catch ( Exception e ) {
 			String sMessage = "Error invoking getFund. [%1$s]";
 			return createErrorResponse( String.format( sMessage, e.toString() ) );
@@ -58,7 +58,7 @@ public class UsuarioController {
 		List<UsuarioPO> usuarios = null;
 
 		try {
-			usuarios = usuarioService.getAllFunds();
+			usuarios = usuarioService.getAllUsers();
 		} catch (Exception e) {
 			String sMessage = "Error getting all funds. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -74,7 +74,7 @@ public class UsuarioController {
 
 
 		try {
-			usuarioService.createFund(user);
+			usuarioService.createUser(user);
 		} catch (Exception e) {
 			String sMessage = "Error creating new fund. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));

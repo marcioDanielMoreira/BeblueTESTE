@@ -44,7 +44,7 @@ public class TransacaoController {
 		}
 
 		try {
-			transacaoService.getFundById(id);
+			transacaoService.getTransacaoById(id);
 		} catch ( Exception e ) {
 			String sMessage = "Error invoking getFund. [%1$s]";
 			return createErrorResponse( String.format( sMessage, e.toString() ) );
@@ -64,7 +64,7 @@ public class TransacaoController {
 		}
 
 		try {
-			transacaoService.getFundByCpf(cpf);
+			transacaoService.getTransacaoByCpf(cpf);
 		} catch ( Exception e ) {
 			String sMessage = "Error invoking getFund. [%1$s]";
 			return createErrorResponse( String.format( sMessage, e.toString() ) );
@@ -79,7 +79,7 @@ public class TransacaoController {
 		List<TransacaoPO> transacoes = null;
 
 		try {
-			transacoes = transacaoService.getAllFunds();
+			transacoes = transacaoService.getAllTransacao();
 		} catch (Exception e) {
 			String sMessage = "Error getting all funds. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));
@@ -95,7 +95,7 @@ public class TransacaoController {
 
 
 		try {
-			transacaoService.createFund(transacao);
+			transacaoService.createTransacao(transacao);
 		} catch (Exception e) {
 			String sMessage = "Error creating new fund. [%1$s]";
 			return createErrorResponse(String.format(sMessage, e.toString()));

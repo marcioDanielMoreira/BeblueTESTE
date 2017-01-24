@@ -2,10 +2,8 @@ package com.teste.samples.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,29 +14,27 @@ import com.teste.samples.domain.TipotransacaoPOJO;
 import com.teste.samples.domain.TransacaoPO;
 import com.teste.samples.domain.UsuarioPO;
 import com.teste.samples.exceptions.ApplicationException;
-import com.teste.samples.service.TransacaoSERVICE;
-import com.teste.samples.utilidades.Utilidades;
 
 @Service
 public class TransacaoService {
 
 	private static final Logger logger_c = Logger.getLogger(TransacaoService.class);
 
-	public void getFundById(String id) throws NumberFormatException, ApplicationException {
+	public void getTransacaoById(String id) throws NumberFormatException, ApplicationException {
 		TransacaoFACADE facade = new TransacaoFACADE();
 
 		facade.filtrarPorId(TransacaoPO.class, new Long(id));
 
 	}
 	
-	public void getFundByCpf(String cpf) throws NumberFormatException, ApplicationException {
+	public void getTransacaoByCpf(String cpf) throws NumberFormatException, ApplicationException {
 		TransacaoFACADE facade = new TransacaoFACADE();
 
 		facade.filtrarPorCPF(TransacaoPO.class, cpf);
 
 	}
 
-	public List<TransacaoPO> getAllFunds() throws ApplicationException {
+	public List<TransacaoPO> getAllTransacao() throws ApplicationException {
 		List<TransacaoPO> transacaoes = new ArrayList<TransacaoPO>();
 
 		for (int i = 0; i < 10; i++) {
@@ -51,7 +47,7 @@ public class TransacaoService {
 		return transacaoes;
 	}
 
-	public void createFund(TransacaoPO transacao) throws ApplicationException {
+	public void createTransacao(TransacaoPO transacao) throws ApplicationException {
 		RestTemplate restTemplate = new RestTemplate();
 
 		TipotransacaoPOJO[] pojos = restTemplate.getForObject(
